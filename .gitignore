@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Client folder
-/node_modules
 /client/node_modules
 .env
