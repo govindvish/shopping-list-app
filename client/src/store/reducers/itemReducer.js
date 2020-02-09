@@ -5,19 +5,27 @@ export default function (state = initialState.list, action) {
     switch (action.type) {
         case types.GET_ITEMS:
             return {
-                ...state
+                ...state,
+                items: action.payload,
+                loading: false
             }
 
         case types.DELETE_ITEM:
             return {
                 ...state,
-                items: state.items.filter(item => item.id !== action.payload.id)
+                items: state.items.filter(item => item._id !== action.payload)
             }
 
         case types.ADD_ITEM:
             return {
                 ...state,
-                items: [action.payload.item, ...state.items]
+                items: [action.payload, ...state.items]
+            }
+
+        case types.ITEMS_LOADING:
+            return {
+                ...state,
+                loading: true
             }
 
         default:
