@@ -18,8 +18,9 @@ connection.once('open', () => {
 });
 
 // Use Routes
-const items = require('./routes/api/items');
-app.use('/api/items', items);
+app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 // Run Sever
 const port = process.env.PORT || 5000;
