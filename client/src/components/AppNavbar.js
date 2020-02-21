@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import RegisterModal from './auth/RegisterModal';
+import Logout from './auth/Logout';
 
 class AppNavbar extends Component {
     constructor(props) {
@@ -25,6 +27,12 @@ class AppNavbar extends Component {
                         <Nav className="ml-auto pr-5" navbar>
                             <NavItem>
                                 <NavLink href="https://github.com/govindvish/shopping-list-app" target="_blank">Github</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <RegisterModal />
+                            </NavItem>
+                            <NavItem>
+                                <Logout />
                             </NavItem>
                         </Nav>
                     </Collapse>
