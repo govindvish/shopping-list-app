@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../../models/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const config = require('config');
 
 // @route   POST api/users
 // @desc    Register new user
@@ -34,7 +35,8 @@ router.post('/', (req, res) => {
                         .then(user => {
                             jwt.sign(
                                 { id: user.id },
-                                process.env.JWT_SECRET,
+                                // process.env.JWT_SECRET,
+                                config.get('JWT_SECRET'),
                                 { expiresIn: 3600 },
                                 (err, token) => {
                                     if (err) throw err;

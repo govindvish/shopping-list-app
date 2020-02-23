@@ -25,3 +25,4 @@ yarn-error.log*
 # Client folder
 /client/node_modules
 .env
+config/default.json
